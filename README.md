@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Notes on npm install and ng test
+
+There is version conflict with typescript and jasmine.
+https://github.com/DefinitelyTyped/DefinitelyTyped/issues/14569
+
+To remove the compilation error: 1. change types/jasmine from 2.8.6 to 2.5.41 in package.json 2. $npm install
