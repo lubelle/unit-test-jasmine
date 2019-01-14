@@ -1,6 +1,6 @@
 import { TodosComponent } from './todos.component';
 import { TodoService } from './todo.service';
-import { from } from 'rxjs';
+import { from, empty } from 'rxjs';
 
 describe('TodosComponent', () => {
   let component: TodosComponent;
@@ -21,5 +21,15 @@ describe('TodosComponent', () => {
     component.ngOnInit();
 
     expect(component.todos).toBe(todos);
+  });
+
+  it('should call the server to save the changes when a new todo item is added', () => {
+    const spy = spyOn(service, 'add').and.callFake( t => {
+      return empty();
+    });
+
+    component.add();
+
+    expect(spy).toHaveBeenCalled();
   });
 });
